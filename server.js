@@ -1,5 +1,5 @@
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,13 +19,13 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/notes.html'));
 })
 
-app.get('api.notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     const data = JSON.parse(fs.readFileSync('db/db.json', 'utf-8'));
     res.send(data);
 })
 
-app.post('api.notes', (req, res) => {
-    const data = fs.readFileSync('.db/db.json', 'utf-8');
+app.post('/api/notes', (req, res) => {
+    const data =JSON.parse( fs.readFileSync('./db/db.json', 'utf-8'));
     fs.writeFileSync('./db/db.json', JSON.stringify(data.concat(req.body)), 'utf-8');
     res.send(req.body);
 })
