@@ -12,25 +12,25 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(_dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 })
 
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(_dirname, 'public/notes.html'));
+    res.sendFile(path.join(__dirname, 'public/notes.html'));
 })
 
 app.get('api.notes', (req, res) => {
-    const data = JSON.parse(fs.readFileSync(path.join(_dirname, 'db/db.json')));
+    const data = JSON.parse(fs.readFileSync('db/db.json', 'utf-8'));
     res.send(data);
 })
 
 app.post('api.notes', (req, res) => {
-    const data = fs.readFileSync('.db/db.json');
+    const data = fs.readFileSync('.db/db.json', 'utf-8');
     fs.writeFileSync('./db/db.json', JSON.stringify(data.concat(req.body)), 'utf-8');
     res.send(req.body);
 })
 
 app.listen(PORT, () => {
-    console.log(`listening at http://localhost${PORT}`);
+    console.log(`listening at http://localhost:${PORT}`);
 })
 
