@@ -1,10 +1,11 @@
 const path = require('path');
 const fs = require('fs');
 const express = require('express');
-const app = express();
 const { v4: uuidv4 } = require('uuid');
-const PORT = process.env.PORT || 3000;
 const db = require('./db/db.json');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,16 +23,16 @@ app.get('/notes', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
     const data = JSON.parse(fs.readFileSync('db/db.json', 'utf-8'));
-    res.send(data);
+    res.json(data);
 });
 
 //posts the content of the notes to the api and creates a unique id for each note
 app.post('/api/notes', (req, res) => {
     const body = {...req.body};
     body.id = uuidv4();
-    const data =JSON.parse( fs.readFileSync('./db/db.json', 'utf-8'));
+    const data =JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     fs.writeFileSync('./db/db.json', JSON.stringify(data.concat(body)), 'utf-8');
-    res.send(body);
+    res.json(body);
 });
 
 
@@ -41,7 +42,7 @@ app.delete("/api/notes/:id", (req, res) => {
     const objects = JSON.parse(fs.readFileSync("./db/db.json", 'utf-8'));
     const items = objects.filter(item => item.id !== id);
     fs.writeFileSync("./db/db.json", JSON.stringify(items), 'utf-8');
-    res.send(items);
+    res.json(items);
 });
 
 //listens to the port

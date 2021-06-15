@@ -8,7 +8,7 @@ An application that can be used to take and record notes using Express.
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Tech/Framework](#tech/framework)
+- [Tech](#tech)
 - [Contributions](#contributions)
 - [Github](#github)
 - [Contact](#contact)
@@ -29,7 +29,7 @@ This application uses Express to write, save, and delete notes. The data is save
 ## Demo
 
 
-<iframe src="https://drive.google.com/file/d/1B3AvRANvSUdOFzkVUZM0ZhB8Qf-iVUsl/preview" width="640" height="480"></iframe>
+<img src="./assets/images/demo.gif">
 
 
 ## Installation
@@ -47,7 +47,7 @@ After the required dependencies are installed, open the terminal and run the fol
   ```
 
 
-## Tech/Framework
+## Tech
 
  * VS Code
  * Node.js
