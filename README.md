@@ -59,7 +59,7 @@ After the required dependencies are installed, open the terminal and run the fol
 This project was made with help from:
 
 * UNCC BootCamp class
-* My tutor, Josh Furlin
+
 
 
 ## Github
