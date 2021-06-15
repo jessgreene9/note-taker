@@ -30,6 +30,7 @@ This application uses Express to write, save, and delete notes. The data is save
 
 
 <img src="./assets/images/demo.gif">
+<img src="./assets/images/screenshot.png">
 
 
 ## Installation
